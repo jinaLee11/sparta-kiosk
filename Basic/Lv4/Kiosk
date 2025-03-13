@@ -1,0 +1,78 @@
+package kiosk1_re.lv4;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class Kiosk {
+
+    private List<Menu> menus =  new ArrayList<>();
+
+    public Kiosk(List<Menu> menus) {
+        this.menus = menus;
+    }
+
+    public void start(){
+        Scanner sc = new Scanner(System.in);
+
+        while (true) {
+
+            // 카테고리 띄워주기
+            System.out.println(" [ MAIN MENU ] ");
+            //menus.size() = 3 (burger, drink, side)
+            for (int i =0; i < menus.size(); i++){
+                System.out.println((i+1)+". " + menus.get(i).getCategory());
+            }
+            System.out.println("0. 종료      | 종료");
+
+            int input = sc.nextInt();
+
+            // 카테고리 선택
+            if (input == 0){
+                System.out.println("프로그램을 종료합니다.");
+                return;
+            } else if (input > 0 && input <= menus.size()) {
+                //입력받은 숫자에 따라 menuitems List 띄우고 선택하면 선택한 메뉴 띄워주기, 0 누르면 뒤로가기 로직 -> 넘 기니까 메서드로 돌리기
+
+                System.out.println(input + "번을 선택하셨습니다.");
+                System.out.println();
+
+                Menu menu = menus.get(input -1); //*** input이 1이면 menus의 get(0)번 -> 버거 menu 가져옴
+                showMenuItemsList(menu,sc);
+
+            } else {
+                System.out.println("잘못 입력하셨습니다.");
+                //반복문으로 다시 입력하게
+            }
+
+        }
+    }
+
+        //input 입력받은 시점에서 돌아가는 메서드. menu 클래스 내부 바로 사용한다는 감각으로 짜기
+        private void showMenuItemsList(Menu menu, Scanner sc){
+            System.out.println(" [ "+ menu.getCategory().toUpperCase() +" MENU ] ");
+
+            List<MenuItem> menuItem = menu.getMenuItems();
+            for (int i = 0; i < menuItem.size(); i++){
+                System.out.println(i+1 + ". " + menuItem.get(i));
+            }
+            System.out.println("0. 뒤로가기      | 뒤로가기");
+
+            int input = sc.nextInt();
+
+            if (input == 0){
+                return; // 뒤로가기
+            } else if (input > 0 && input <= menuItem.size()) {
+                System.out.println("선택하신 메뉴 : " + menuItem.get(input-1));
+                System.out.println();
+            } else {
+                System.out.println("잘못 입력하셨습니다.");
+            }
+            
+        }
+    }
+
+
+
+
+
