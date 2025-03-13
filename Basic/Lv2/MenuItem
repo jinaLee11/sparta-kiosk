@@ -1,0 +1,27 @@
+package kiosk1_re.lv2;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class MenuItem {
+    // 개별 음식 항목을 관리하는 클래스입니다. 현재는 햄버거만 관리합니다.
+    private String name;
+    private double price;
+    private String explanation;
+
+    @Override
+    public String toString() {
+        return  name + "  |  " +
+                "W " + price + "  |  " +
+                explanation
+                ;
+    }
+
+    public MenuItem(String name, double price, String explanation) {
+        this.name = name;
+        this.price = price;
+        this.explanation = explanation;
+    }
+
+
+}
