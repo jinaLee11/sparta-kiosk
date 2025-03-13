@@ -1,0 +1,26 @@
+package kiosk1_re.lv4;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Menu {
+
+    private String category;
+    private List<MenuItem> menuItems = new ArrayList<>();
+
+    // Menu 객체 생성시 카테고리명, 카테고리에 해당하는 MenuItemList 할당해 초기화
+    public Menu(String category, List<MenuItem> menuItems) {
+        this.category = category;
+        this.menuItems = menuItems;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public List<MenuItem> getMenuItems() {
+        return menuItems;
+    }
+
+
+}
