@@ -17,4 +17,4 @@ Lv4 : 객체 지향 설계를 적용해 음식 메뉴와 주문 내역을 클래
 Lv5 : 캡슐화 적용 (Main, MenuItem, Kiosk, Menu) <br>
 
 <h2>트러블슈팅</h2>
-🔗 
+🔗 https://iammu.tistory.com/38
